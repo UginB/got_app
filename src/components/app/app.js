@@ -4,7 +4,7 @@ import Header from '../header';
 import RandomChar from '../randomChar';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
-
+import { Button } from 'reactstrap';
 
 const App = () => {
     return (
@@ -16,6 +16,7 @@ const App = () => {
                 <Row>
                     <Col lg={{size: 5, offset: 0}}>
                         <RandomChar/>
+                        <Button color="primary" onClick={() => {document.querySelector('.random-block').classList.toggle('hide')}}>Toggle random character</Button>
                     </Col>
                 </Row>
                 <Row>

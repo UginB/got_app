@@ -40,6 +40,9 @@ export default class GotService {
     }
 
     _transformCharacter(char) {
+        
+        for(let key in char) {if(char[key] === '') {char[key] = 'no data :('}};
+
         return {
             name: char.name,
             gender: char.gender,
