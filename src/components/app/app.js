@@ -5,12 +5,19 @@ import RandomChar from '../randomChar';
 import ItemList from '../itemList';
 import CharDetails from '../charDetails';
 import { Button } from 'reactstrap';
+import ErrorMessage from '../errorMessage';
 
 export default class App extends Component {
     state = {
         showRandomChar: true,
         selectedChar: 130,
         error: false
+    }
+
+    componentDidCatch() {
+        this.setState({
+            error: true
+        })
     }
 
     toggleRandomChar = () => {
@@ -28,9 +35,9 @@ export default class App extends Component {
     }
 
     render() {
-        // if (this.state.error) {
-        //     return <ErrorMessage/>
-        // }
+        if (this.state.error) {
+            return <ErrorMessage/>
+        }
         const char = this.state.showRandomChar ? <RandomChar/> : null;
         return (
             <> 

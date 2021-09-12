@@ -17,13 +17,14 @@ export default class CharDetails extends Component {
     updateChar() {
         const {charId} = this.props;
         if (!charId) {
-            return
+            return;
         }
 
         this.gotService.getCharacter(charId)
             .then((char) => {
                 this.setState({char})
             });
+        // this.foo.bar = 0; //ошибка
     }
 
     componentDidUpdate(prevProps) { 
