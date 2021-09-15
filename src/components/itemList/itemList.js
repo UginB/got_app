@@ -11,6 +11,7 @@ export default class ItemList extends Component {
     }
 
     componentDidMount() {
+
         this.gotService.getAllCharacters()
             .then(charList => {
                 this.setState({charList})
