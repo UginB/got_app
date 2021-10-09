@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './itemDetails.css';
 
+
 const Field = ({item, field, label}) => {
     return (
         <li className="list-group-item d-flex justify-content-between">
@@ -12,9 +13,11 @@ const Field = ({item, field, label}) => {
 
 export {
     Field
-}
+};
 
 export default class ItemDetails extends Component {
+
+
     state = {
         item: null
     }
@@ -22,8 +25,8 @@ export default class ItemDetails extends Component {
     componentDidMount() {
         this.updateItem();
     }
-
-    componentDidUpdate(prevProps) { 
+    
+    componentDidUpdate(prevProps) {
         if (this.props.itemId !== prevProps.itemId) {
             this.updateItem();
         }
@@ -38,16 +41,16 @@ export default class ItemDetails extends Component {
         getData(itemId)
             .then((item) => {
                 this.setState({item})
-            });
+            })
     }
-    
+
     render() {
+
         if (!this.state.item) {
             return <span className='select-error'>Please select item in the list</span>
         }
-
         const {item} = this.state;
-        const {name} = this.state.item;
+        const {name} = item;
 
         return (
             <div className="char-details rounded">
